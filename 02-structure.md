@@ -16,7 +16,7 @@ Forms always start with the `form` tag. It's used to define the *method* that wi
 </form>
 ```
 
-The example above shows 2 different attributes written in the `form` tag. The `method` and the `action` attributes. In the upcoming sections for the sake of simplicity, these attributes will be removed.
+The example above shows 2 different attributes written in the `form` tag, the `method` and the `action` attributes.
 
 #### The `method` attribute
 
@@ -29,7 +29,7 @@ The `method` attribute describes the HTTP verb used to submit the form. It's cas
 
 💡 HTML5 introduced a new method `dialog` which can be used to close a native `dialog` element that enclose the form. For the sake of simplicity, this one will be discussed later in **Real life cases** section.
 
-⚠️ `form` tag cannot be nested (i.e we cannot add a form inside another form). Browsers usually ignore the inner `form` tag. Some authors try to do that in attempt to organize their form into different sections. This is done using different elements that we will discuss later.
+⚠️ Forms cannot be nested (i.e. we cannot add a form inside another form). Browsers usually ignore the inner `form` tag. Some authors try to do that in attempt to organize their form into different sections. This is done using different elements that we will discuss later.
 
 #### The `action` attribute
 
@@ -37,7 +37,7 @@ The `action` attribute is used to define the URL where this form will be submitt
 
 ### Form elements used to collect data
 
-In the past section we created the form basic structure. In this section we will learn about the different elements used to collect inputs from the users. We will discuss the `input`, `textarea` and `select` tags. For the same of simplicity, we will refer to them collectively as *form controls*.
+In this section we will learn about the different elements used to collect inputs from the users. We will discuss the `input`, `textarea` and `select` tags. For the sake of simplicity, we will refer to them collectively as *form controls*.
 
 #### The `input` tag
 
@@ -197,9 +197,53 @@ It's always encouraged to use `label`s for the following benefits:
 
 💡 Multiple labels can be associated with a single form control. This becomes handy when you try to design a certain experience where multiple click areas can be used to activate the same form control.
 
-#### The `fields` and `legend` tags
+#### The `fieldset` and `legend` tags
 
-TODO
+The `fieldset` element allows us to group some form controls in a single section. It's labelled by using a `legend` element.
+
+```html
+<form>
+  <fieldset>
+    <legend>Personal information</legend>
+    <label for="name">Name</label>
+    <input type="text" id="name" />
+    <label for="date-of-birth">Date of birth</label>
+    <input type="date" id="date-of-birth" />
+  </fieldset>
+  <fieldset>
+    <legend>Contact details</legend>
+    <label for="email">Email</label>
+    <input type="email" id="email" />
+    <label for="phone">Phone number</label>
+    <input type="tel" id="phone" />
+  </fieldset>
+  <button>Submit</button>
+</form>
+```
+
+By default, the user agent stylesheet add some padding and margin around the `fieldset` as well as 2px groove border giving it a distinguished look. We will discuss how it look in details in the **Styling forms with CSS** section.
+
+Another common use case for `fieldset` is to group several checkboxes or radio buttons like the following
+
+```html
+<form>
+  <fieldset>
+    <legend>Select your gender</legend>
+    <input type="radio" id="gender-male" value="1" name="gender" />
+    <label for="gender-male">Male</label>
+    <input type="radio" id="gender-female" value="2" name="gender" />
+    <label for="gender-female">Female</label>
+    <input type="radio" id="gender-unspecified" value="3" name="gender" />
+    <label for="gender-unspecified">Prefer not to disclose</label>
+  </fieldset>
+</form>
+```
+
+In the previous example, screen readers will attempt to read the question defined in the `legend` tag giving a greater context for the users. This will be discussed in details in **Forms accessibility**.
+
+💡 It's OK to nest several `fieldset`s inside each other as long as it makes sense.
+
+💡 A `fieldset` can contain only one `legend`. The HTML specs define the `legend` as the first child to the `fieldset`. If the `legend` is nested in any place other than the first child, it will be rendered as if it is the first child. This odd behavior is intended by design and there were several proposals to change it.
 
 ### Form actions
 
