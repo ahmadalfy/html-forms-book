@@ -82,9 +82,9 @@ The `input` is a self-closing element. The `type` attribute defines what type of
 
 The `input` tag has the option to accept an initial value using the `value` attribute. If that attribute is missing, the value will be nothing. When the user submit a form, the text value written inside the form will be submitted.
 
-Some inputs types will resolve to special values that is different from the text being displayed inside the form control. For example, an `input` with the type `date` might display the date in the format `MM/DD/YYYY` (if your locale is en-US) but the submitted value will always be formatted according to ISO8601 like `YYYY-MM-DD`. These special cases will be explained when we discuss each `type` separately.
+Some input types will resolve to special values that is different from the text being displayed inside the form control. For example, an `input` with the type `date` might display the date in the format `MM/DD/YYYY` (if your locale is en-US) but the submitted value will always be formatted according to ISO8601 like `YYYY-MM-DD`. These special cases will be explained when we discuss each `type` separately.
 
-#### The `texture` tag
+#### The `textarea` tag
 
 The `textarea` allows the user to write multiple lines of text. It's suitable to use when the user is expected to insert big chunks of unstructured text (like a message, a feedback ... etc).
 
