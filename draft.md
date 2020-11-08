@@ -15,7 +15,7 @@
   * Native validation
   * Extended validation with constraint validation
 * Forms and security
-* DOM 101
+* [DOM 101](./04-dom-101.md)
 * Events
 * Third party plugins for working with forms
 * Real life cases
