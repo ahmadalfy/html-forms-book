@@ -55,7 +55,7 @@ You can see there is a new tag we used here `label`. For now, let's just say tha
 
 The `input` is a self-closing element. The `type` attribute defines what type of the element is. HTML5 introduced a lot of different types that can be used to collect different types of data.
 
-##### Old input types
+##### Original input types
 
 * `text` accepts anything. This is the default value of the attribute. If the user doesn't provide a value for the `type`, the browser will consider the `input` type as `text`. Also, if the browser doesn't understand the value of the `type` attribute (like if it is an invalid value, or an older browser that doesn't understand new values) it will also be treated as `text`.
 * `password` accepts anything like text. The difference is, the browser will attempt to hide the value the user is writing on the screen for privacy purpose. The behavior is different on mobile phones where the browser will attempt to show the last character you wrote for a moment before hiding the entire value.
