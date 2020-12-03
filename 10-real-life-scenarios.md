@@ -49,10 +49,10 @@ Nothing fancy is going on. We structured our form in a way that each `fieldset` 
 class MultiStepForm {
   
   // Will take care of creating the navigation buttons
-	setupMultiStepForm() {}
+  setupMultiStepForm() {}
   
   // We will use this to attach all the necessary events listeners
-	bindEvents() {}
+  bindEvents() {}
 
   // Hide current step and activate next step
   activateNextStep() {}
@@ -86,7 +86,7 @@ class MultiStepForm {
     * @param {HTMLFormElement} options.form
     * @param {string} options.stepSelector
     */
-	constructor(options) {
+  constructor(options) {
     this.form = this.options.form;
   }
 }
@@ -129,23 +129,23 @@ Let's start by creating the next and previous buttons for each step. Usually the
 setupMultiStepForm() {
   this.steps.forEach(step => {
     // Create the buttons container per step
-  	const buttonsContainer = document.createElement('div');
+    const buttonsContainer = document.createElement('div');
     buttonsContainer.classList.add('buttons-container');
-    
+
     // Create next button
-		const nextButton = document.createElement('button');
+    const nextButton = document.createElement('button');
     // We set the type to button to prevent it from submitting the form
     nextButton.type = 'button';
     // This action will be used to determine the behaviour of the button
     nextButton.dataset.action = 'activateNextStep';
     nextButton.innerText = 'Next';
-    
+
     // Create previous button
     const prevButton = document.createElement('button');
     prevButton.type = 'button';
     prevButton.dataset.action = 'activatePrevStep';
     prevButton.innerText = 'Next';
-    
+
     // Append buttons to the container
     buttonContainer.appendChild(prevButton);
     buttonContainer.appendChild(nextButton);
@@ -161,12 +161,12 @@ Now each step should have a new child containing previous and next buttons. The 
 setupMultiStepForm() {
   this.steps.forEach((step, index, array) => {
     // Create the buttons container per step
-  	const buttonsContainer = document.createElement('div');
+    const buttonsContainer = document.createElement('div');
     buttonsContainer.classList.add('buttons-container');
-    
+
     // Temporary placeholder for buttons;
     const buttons = [];
-    
+
     // If it isn't the first step, create a previous button
     if (index !== 0) {
       // Create previous button
@@ -176,7 +176,7 @@ setupMultiStepForm() {
       prevButton.innerText = 'Previous';
       buttons.push(prevButton);
     }
-    
+
     // If it isn't the last step, create a next button
     if (index === array.length - 1) {
       // Create next button
@@ -190,7 +190,7 @@ setupMultiStepForm() {
     }
     // Append buttons to the container
     buttons.forEach(button => {
-	    buttonContainer.appendChild(button);
+      buttonContainer.appendChild(button);
     });
     // Append container to the step
     step.appendChild(buttonContainer);
@@ -198,7 +198,7 @@ setupMultiStepForm() {
 }
 ```
 
-Now each step should have the correct navigation buttons. These buttons will do nothing 
+Now each step should have the correct navigation buttons. These buttons will do nothing yet.
 
 Next we should hide all steps except the first one. We can do that by adding the following line to the loop:
 
@@ -225,4 +225,3 @@ Note that CSS can easily override the display elements with `hidden` attribute b
   display: none !important;
 }
 ```
-
